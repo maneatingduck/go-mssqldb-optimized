@@ -1,6 +1,6 @@
 module github.com/microsoft/go-mssqldb
 
-go 1.23.0
+go 1.24.0
 
 toolchain go1.24.4
 
@@ -13,9 +13,9 @@ require (
 	github.com/google/uuid v1.6.0
 	github.com/jcmturner/gokrb5/v8 v8.4.4
 	github.com/stretchr/testify v1.10.0
-	golang.org/x/crypto v0.38.0
-	golang.org/x/sys v0.33.0
-	golang.org/x/text v0.25.0
+	golang.org/x/crypto v0.43.0
+	golang.org/x/sys v0.37.0
+	golang.org/x/text v0.30.0
 )
 
 require (
@@ -33,6 +33,6 @@ require (
 	github.com/kylelemons/godebug v1.1.0 // indirect
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
-	golang.org/x/net v0.40.0 // indirect
+	golang.org/x/net v0.45.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

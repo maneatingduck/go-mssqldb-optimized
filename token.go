@@ -779,7 +779,8 @@ func readCekTableEntry(r *tdsBuffer) cekTableEntry {
 
 // http://msdn.microsoft.com/en-us/library/dd357254.aspx
 func parseRow(ctx context.Context, r *tdsBuffer, s *tdsSession, columns []columnStruct, row []interface{}) error {
-	for i, column := range columns {
+	for i := 0; i < len(columns); i++ { // ← New indexed loop
+		column := &columns[i] // ← Pointer to avoid copy
 		columnContent := column.ti.Reader(&column.ti, r, nil, s.encoding)
 		if columnContent == nil {
 			row[i] = columnContent
@@ -787,7 +788,7 @@ func parseRow(ctx context.Context, r *tdsBuffer, s *tdsSession, columns []column
 		}
 
 		if column.isEncrypted() {
-			buffer, err := decryptColumn(ctx, column, s, columnContent)
+			buffer, err := decryptColumn(ctx, *column, s, columnContent)
 			if err != nil {
 				return err
 			}
